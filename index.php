@@ -19,18 +19,20 @@ include("php/titre.php");
         <link rel="stylesheet" href="css/main.css">
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
-    <?php include("php/header.php") ?>
     <body>
+      <?php if (!empty($_POST['pseudo']) and !empty($_POST['user_password'])) {
+        include("php/header.php");
+      } ?>
       <main>
         <?php
-          if (isset($_POST('pseudo')) and isset($_POST('user_password'))) {
+          if (!empty($_POST['pseudo']) and !empty($_POST['user_password'])) {
             ?>
 
-            <script>$("#connection").remove;</script>
+            <script>$("#connection").remove();</script>
             <?php
               $_SESSION["pseudo"] = $_POST["pseudo"];
-              $_SESSION["code"] = $_POST["code"];
-              for($produit_en_cours = 0, $produit_en_cours < count($produit), $produit_en_cours++){
+              $_SESSION["code"] = $_POST["user_password"];
+              for($produit_en_cours = 0; $produit_en_cours < count($produit); $produit_en_cours++){
             ?>
                 <section class="ficheProduit">
                   <img src="<?php echo $produit[$produit_en_cours]['p_img'];?>" alt="">
@@ -62,16 +64,18 @@ include("php/titre.php");
           </form>
         </section>
       </main>
-      <?php include("php/footer.php") ?>
+      <?php if (!empty($_POST['pseudo']) and !empty($_POST['user_password'])) {
+        include("php/footer.php");
+      } ?>
 
 
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
-        <script src="../../bootstrap4/css/bootstrap.css"></script>
-        <script src="../../bootstrap4/js/bootstrap.js"></script>
-        <script src="../../jquery-3.2.1.js">
+        <script src="bootstrap4/css/bootstrap.css"></script>
+        <script src="bootstrap4/js/bootstrap.js"></script>
+        <script src="jquery-3.2.1.js">
 
         </script>
 

@@ -1,5 +1,5 @@
 <header>
-  <h1><?php echo $titre; ?></h1>
+  <h1><?php echo $titre['titre']; ?></h1>
   <section>
     <p>bienvenu <?php echo $_SESSION["pseudo"]; ?></p>
   </section>
