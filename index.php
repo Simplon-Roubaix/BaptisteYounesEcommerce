@@ -22,8 +22,13 @@ include("php/titre.php");
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
-      <?php if ( !empty($_POST['pseudo']) and !empty($_POST['user_password'])
-      or !empty($_SESSION["pseudo"]) and !empty($_SESSION["code"]) ){
+      <?php
+      if (!empty($_POST['pseudo']) and !empty($_POST['user_password'])) {
+                echo "test";
+        $_SESSION["pseudo"] = $_POST["pseudo"];
+        $_SESSION["code"] = $_POST["user_password"];
+      }
+      if (!empty($_SESSION["pseudo"]) and !empty($_SESSION["code"]) ){
         include("php/header.php");
       } ?>
       <main>
@@ -37,10 +42,6 @@ include("php/titre.php");
                       console.log("passe ici");
             </script>
             <?php
-            if (empty($_SESSION["pseudo"]) and empty($_SESSION["code"])) {
-              $_SESSION["pseudo"] = $_POST["pseudo"];
-              $_SESSION["code"] = $_POST["user_password"];
-            }
               for($produit_en_cours = 0; $produit_en_cours < count($produit); $produit_en_cours++){
             ?>
                 <section class="ficheProduit">
@@ -48,14 +49,11 @@ include("php/titre.php");
                   <p><?php echo $produit[$produit_en_cours]['p_text']; ?></p>
                   <form class="" action="php/ficheProduit.php" method="post">
                     <input class="inputCache" type="text" name="selection" value="<?php echo $produit_en_cours; ?>">
-                    <input type="submit" name="En savoir plus">
+                    <input type="submit" class="savoir" value="En savoir plus">
                   </form>
                 </section>
                 <?php
             }
-          }
-          else{
-            echo "vous n'avez pas remplit correctement";
           }
         ?>
         <section id="connection">

@@ -9,13 +9,13 @@ h1{
 
 header section{
   border: 1px solid #000;
-  width: 20%;
+  display: inline-block;
   position: relative;
+  margin-left: 20px;
 }
 
 header p{
   text-align: right;
-  margin-right: 10px;
 }
 
 .inputCache{
@@ -24,16 +24,31 @@ header p{
 
 .ficheProduit{
   border: 1px solid #000;
-  width: 30%;
+  width: 90%;
   display: inline-block;
   margin: 20px 0;
+}
+
+.ficheProduit img{
+  width: 50%;
+  margin: 0 25%;
+}
+
+.savoir{
+  background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
 }
 
 main{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
 }
 
@@ -46,11 +61,16 @@ main{
 #detailProduit img{
   width: 50%;
   vertical-align: top;
+  float: left;
 }
+
+#detailProduit a{
+  text-decoration: none;
+
+}
+
 #detailProduit p{
-  width: 40%;
-  display: inline-block;
-  margin-top: 150px;
+  margin : 0 5px;
 }
 
 footer{
@@ -62,7 +82,21 @@ footer h2{
 }
 
 footer section{
-  border: 1px solid #000;
-  width: 20%;
-  margin-bottom: 30px;
+  width: 50%;
+  margin: auto;
+}
+footer section p{
+  text-align: center;
+}
+
+@media (min-width: 600px) {
+  .ficheProduit{
+    width: 45%;
+  }
+}
+
+@media (min-width: 1000px) {
+  .ficheProduit{
+    width: 30%;
+  }
 }
