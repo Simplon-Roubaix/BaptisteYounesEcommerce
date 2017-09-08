@@ -29,6 +29,7 @@ include("php/titre.php");
         $_SESSION["code"] = $_POST["user_password"];
       }
       if (!empty($_SESSION["pseudo"]) and !empty($_SESSION["code"]) ){
+        $chemin_deco = "php/deconnexion.php";
         include("php/header.php");
       } ?>
       <main>

@@ -5,12 +5,13 @@ header{
 
 h1{
   text-align: center;
+  position: relative;
 }
 
 header section{
-  border: 1px solid #000;
+  border: 3px solid #000;
   display: inline-block;
-  position: relative;
+  position: absolute;
   margin-left: 20px;
 }
 

@@ -1,7 +1,7 @@
 <header>
   <section>
     <p>bienvenu <?php echo $_SESSION["pseudo"]; ?></p>
-    <form action="php/deconnexion.php" method="post">
+    <form action="<?php echo $chemin_deco ?>" method="post">
     <input type="submit" value="Déconnexion" />
     </form>
   </section>

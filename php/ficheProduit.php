@@ -21,7 +21,9 @@ include("titre.php");
         <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
-      <?php include("header.php") ?>
+      <?php
+      $chemin_deco = "deconnexion.php";
+      include("header.php"); ?>
       <main>
         <?php if (!empty($_POST["selection"]) or $_POST["selection"] == 0) {
           ?>
