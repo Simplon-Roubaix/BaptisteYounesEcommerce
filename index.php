@@ -8,11 +8,11 @@ include("php/titre.php");
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title></title>
+        <title>site Duglandeur</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <link rel="apple-touch-icon" href="favicon-2.ico">
         <!-- Place favicon.ico in the root directory -->
 
         <link rel="stylesheet" href="css/normalize.css">
@@ -22,12 +22,13 @@ include("php/titre.php");
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
-      <?php if (!empty($_POST['pseudo']) and !empty($_POST['user_password'])) {
+      <?php if ( !empty($_POST['pseudo']) and !empty($_POST['user_password'])
+      or !empty($_SESSION["pseudo"]) and !empty($_SESSION["code"]) ){
         include("php/header.php");
       } ?>
       <main>
         <?php
-          if (!empty($_POST['pseudo']) and !empty($_POST['user_password'])) {
+          if (!empty($_POST['pseudo']) and !empty($_POST['user_password']) or !empty($_SESSION["pseudo"]) and !empty($_SESSION["code"]) ) {
             ?>
 
             <script>$(document).ready(function(){
@@ -36,14 +37,16 @@ include("php/titre.php");
                       console.log("passe ici");
             </script>
             <?php
+            if (empty($_SESSION["pseudo"]) and empty($_SESSION["code"])) {
               $_SESSION["pseudo"] = $_POST["pseudo"];
               $_SESSION["code"] = $_POST["user_password"];
+            }
               for($produit_en_cours = 0; $produit_en_cours < count($produit); $produit_en_cours++){
             ?>
                 <section class="ficheProduit">
                   <img src="<?php echo $produit[$produit_en_cours]['p_img'];?>" alt="">
                   <p><?php echo $produit[$produit_en_cours]['p_text']; ?></p>
-                  <form class="" action="ficheProduit.php" method="post">
+                  <form class="" action="php/ficheProduit.php" method="post">
                     <input class="inputCache" type="text" name="selection" value="<?php echo $produit_en_cours; ?>">
                     <input type="submit" name="En savoir plus">
                   </form>
@@ -70,7 +73,7 @@ include("php/titre.php");
           </form>
         </section>
       </main>
-      <?php if (!empty($_POST['pseudo']) and !empty($_POST['user_password'])) {
+      <?php if (!empty($_POST['pseudo']) and !empty($_POST['user_password']) or !empty($_SESSION["pseudo"]) and !empty($_SESSION["code"])) {
         include("php/footer.php");
       } ?>
 
