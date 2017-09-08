@@ -1,0 +1,52 @@
+header{
+  background-color: rgba(254, 63, 63, 0.5);
+  padding: 20px 0;
+}
+
+h1{
+  text-align: center;
+}
+
+header section{
+  border: 1px solid #000;
+  width: 20%;
+  position: relative;
+}
+
+header p{
+  text-align: right;
+  margin-right: 10px;
+}
+
+.inputCache{
+  display: none;
+}
+
+.ficheProduit{
+  border: 1px solid #000;
+  width: 30%;
+  display: inline-block;
+  margin: 20px 0;
+}
+
+main{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+footer{
+  background-color: rgba(0, 0, 0, 0.3);
+  padding-bottom: 5px;
+}
+footer h2{
+  text-align: center;
+}
+
+footer section{
+  border: 1px solid #000;
+  width: 20%;
+  margin-bottom: 30px;
+}

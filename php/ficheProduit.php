@@ -22,7 +22,7 @@ include("php/titre.php");
     <body>
       <?php include("php/header.php") ?>
       <main>
-        <?php if (isset($_POST["selection"])) {
+        <?php if (!isset($_POST["selection"])) {
           ?>
           <section>
             <img src="<?php echo $produit[$_POST["selection"]]["g_img"]; ?>" alt="">

@@ -17,6 +17,8 @@ include("php/titre.php");
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="jquery-3.2.1.js"></script>
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
@@ -28,7 +30,11 @@ include("php/titre.php");
           if (!empty($_POST['pseudo']) and !empty($_POST['user_password'])) {
             ?>
 
-            <script>$("#connection").remove();</script>
+            <script>$(document).ready(function(){
+                      $("#connection").remove();
+                      });
+                      console.log("passe ici");
+            </script>
             <?php
               $_SESSION["pseudo"] = $_POST["pseudo"];
               $_SESSION["code"] = $_POST["user_password"];
@@ -38,7 +44,7 @@ include("php/titre.php");
                   <img src="<?php echo $produit[$produit_en_cours]['p_img'];?>" alt="">
                   <p><?php echo $produit[$produit_en_cours]['p_text']; ?></p>
                   <form class="" action="ficheProduit.php" method="post">
-                    <input type="text" name="selection" value="<?php echo $produit_en_cours; ?>">
+                    <input class="inputCache" type="text" name="selection" value="<?php echo $produit_en_cours; ?>">
                     <input type="submit" name="En savoir plus">
                   </form>
                 </section>
@@ -73,11 +79,8 @@ include("php/titre.php");
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
-        <script src="bootstrap4/css/bootstrap.css"></script>
-        <script src="bootstrap4/js/bootstrap.js"></script>
-        <script src="jquery-3.2.1.js">
-
-        </script>
+        <!--<script src="bootstrap4/css/bootstrap.css"></script>
+        <script src="bootstrap4/js/bootstrap.js"></script>-->
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
