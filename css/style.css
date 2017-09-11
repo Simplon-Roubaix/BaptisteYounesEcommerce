@@ -1,22 +1,43 @@
+#connection{
+  border: 1px solid #000;
+  background-color: rgba(0, 0, 0, 0.21);
+}
+
+#connection input,#connection label{
+  width: 50%;
+  margin: 10px 25%;
+}
+
 header{
-  background-color: rgba(254, 63, 63, 0.5);
-  padding: 20px 0;
+  border-bottom: 1px solid black;
+  padding-bottom: 30px;
+  background-color: red;
 }
 
 h1{
   text-align: center;
-  position: relative;
 }
 
 header section{
-  border: 3px solid #000;
+  padding: 0 20px 30px 20px;
   display: inline-block;
-  position: absolute;
   margin-left: 20px;
+  right: 1%;
 }
 
 header p{
-  text-align: right;
+  text-align: center;
+}
+
+header input{
+  background-color: red;
+  border: none;
+  color: white;
+  padding: 16px 20px;
+  text-decoration: none;
+  margin: 10px 5px;
+  border-radius: 30px;
+  cursor: pointer;
 }
 
 .inputCache{
@@ -24,6 +45,7 @@ header p{
 }
 
 .ficheProduit{
+  position: relative;
   border: 1px solid #000;
   width: 90%;
   display: inline-block;
@@ -32,17 +54,28 @@ header p{
 
 .ficheProduit img{
   width: 50%;
-  margin: 0 25%;
+  margin: 0 25% 30px 25%;
+}
+.ficheProduit p{
+  margin: 0 5px;
+  text-align: justify;
+}
+.savoir{
+  position: absolute;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 16px 20px;
+  text-decoration: none;
+  margin: 10px 5px;
+  top: 150px;
+  left: 80%;
+  border-radius: 400px;
+  cursor: pointer;
 }
 
-.savoir{
-  background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 16px 32px;
-    text-decoration: none;
-    margin: 4px 2px;
-    cursor: pointer;
+.savoir:hover{
+  box-shadow: 5px 5px 50px black;
 }
 
 main{
@@ -91,13 +124,47 @@ footer section p{
 }
 
 @media (min-width: 600px) {
+  .savoir{
+    left: 80%;
+    top:100px;
+  }
   .ficheProduit{
     width: 45%;
   }
 }
 
+@media (min-width: 600px) {
+  .savoir{
+    left: 80%;
+    top:80px;
+  }
+}
+
+@media (min-width: 900px) {
+  header section{
+    position: absolute;
+  }
+  .savoir{
+    left: 80%;
+    top:140px;
+  }
+}
 @media (min-width: 1000px) {
+  .savoir{
+    left: 80%;
+    top:120px;
+  }
   .ficheProduit{
     width: 30%;
   }
+  header{
+    background-image: url(../img/g_img/img_header.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
 }
+@media (min-width: 1400px) {
+  .savoir{
+    left: 80%;
+    top:170px;
+  }
