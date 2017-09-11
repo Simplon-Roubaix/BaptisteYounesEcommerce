@@ -1,5 +1,5 @@
 header{
-  background-color: rgba(254, 63, 63, 0.5);
+  border-bottom: 1px solid black;
   padding: 20px 0;
 }
 
@@ -9,14 +9,15 @@ h1{
 }
 
 header section{
-  border: 3px solid #000;
+  background-color: rgba(1, 1, 1, 0.32);
+  padding: 0 20px 30px 20px;
   display: inline-block;
-  position: absolute;
   margin-left: 20px;
+  right: 1%;
 }
 
 header p{
-  text-align: right;
+  text-align: center;
 }
 
 .inputCache{
@@ -24,6 +25,7 @@ header p{
 }
 
 .ficheProduit{
+  position: relative;
   border: 1px solid #000;
   width: 90%;
   display: inline-block;
@@ -32,17 +34,24 @@ header p{
 
 .ficheProduit img{
   width: 50%;
-  margin: 0 25%;
+  margin: 0 25% 30px 25%;
 }
-
+.ficheProduit p{
+  margin: 0 5px;
+  text-align: justify;
+}
 .savoir{
+  position: absolute;
   background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 16px 32px;
-    text-decoration: none;
-    margin: 4px 2px;
-    cursor: pointer;
+  border: none;
+  color: white;
+  padding: 16px 20px;
+  text-decoration: none;
+  margin: 10px 5px;
+  top: 150px;
+  left: 80%;
+  border-radius: 400px;
+  cursor: pointer;
 }
 
 main{
@@ -91,13 +100,47 @@ footer section p{
 }
 
 @media (min-width: 600px) {
+  .savoir{
+    left: 80%;
+    top:100px;
+  }
   .ficheProduit{
     width: 45%;
   }
 }
 
+@media (min-width: 600px) {
+  .savoir{
+    left: 80%;
+    top:80px;
+  }
+}
+
+@media (min-width: 900px) {
+  header section{
+    position: absolute;
+  }
+  .savoir{
+    left: 80%;
+    top:140px;
+  }
+}
 @media (min-width: 1000px) {
+  .savoir{
+    left: 80%;
+    top:120px;
+  }
   .ficheProduit{
     width: 30%;
   }
+  header{
+    background-image: url(../img/g_img/img_header.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
 }
+@media (min-width: 1400px) {
+  .savoir{
+    left: 80%;
+    top:170px;
+  }

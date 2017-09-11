@@ -22,9 +22,8 @@ include("php/titre.php");
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
-      <?php
+      <?php /*script */
       if (!empty($_POST['pseudo']) and !empty($_POST['user_password'])) {
-                echo "test";
         $_SESSION["pseudo"] = $_POST["pseudo"];
         $_SESSION["code"] = $_POST["user_password"];
       }
@@ -33,7 +32,7 @@ include("php/titre.php");
         include("php/header.php");
       } ?>
       <main>
-        <?php
+        <?php /*script prenand en compte les variable pseudo et code pour effacer le formulaire de départ, puis créer les fiches produit en lisant les tableaux associatifs */
           if (!empty($_POST['pseudo']) and !empty($_POST['user_password']) or !empty($_SESSION["pseudo"]) and !empty($_SESSION["code"]) ) {
             ?>
 
@@ -50,13 +49,14 @@ include("php/titre.php");
                   <p><?php echo $produit[$produit_en_cours]['p_text']; ?></p>
                   <form class="" action="php/ficheProduit.php" method="post">
                     <input class="inputCache" type="text" name="selection" value="<?php echo $produit_en_cours; ?>">
-                    <input type="submit" class="savoir" value="En savoir plus">
+                    <input type="submit" class="savoir" value="+">
                   </form>
                 </section>
                 <?php
             }
           }
         ?>
+        <!--formulaire statique pour acceder au site, disparais après utilisation-->
         <section id="connection">
           <h1>connectez vous pour accedez au site</h1>
           <form action="index.php" method="post">
