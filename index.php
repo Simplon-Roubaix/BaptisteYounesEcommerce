@@ -61,11 +61,11 @@ include("php/titre.php");
           <h1>connectez vous pour accedez au site</h1>
           <form action="index.php" method="post">
             <article class="">
-              <label for="">Entrez un pseudo</label>
+              <label for="">Entrez un pseudo</label><br>
               <input type="text" name="pseudo" value="">
             </article>
             <article class="">
-              <label for="">entrez un mot de passe</label>
+              <label for="">entrez un mot de passe</label><br>
               <input type="password" name="user_password" value="">
             </article>
             <input type="submit" name="valider">
