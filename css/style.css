@@ -10,16 +10,18 @@
 
 header{
   border-bottom: 1px solid black;
-  padding-bottom: 30px;
-  background-color: red;
+  background-color: rgba(0, 0, 0, 1);
+  height: 200px;
 }
 
 h1{
   text-align: center;
+  color:white;
+  padding-top: 30px;
 }
 
 header section{
-  padding: 0 20px 30px 20px;
+  padding: 0 20px 0 20px;
   display: inline-block;
   margin-left: 20px;
   right: 1%;
@@ -27,11 +29,12 @@ header section{
 
 header p{
   text-align: center;
+  color:white;
 }
 
 header input{
-  background-color: red;
-  border: none;
+  background-color: rgba(255, 0, 0, 0.5);
+  border: 1px solid white;
   color: white;
   padding: 16px 20px;
   text-decoration: none;
@@ -46,10 +49,12 @@ header input{
 
 .ficheProduit{
   position: relative;
-  border: 1px solid #000;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
   width: 90%;
   display: inline-block;
   margin: 20px 0;
+  height: 350px;
 }
 
 .ficheProduit img{
@@ -57,6 +62,7 @@ header input{
   margin: 0 25% 30px 25%;
 }
 .ficheProduit p{
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
   margin: 0 5px;
   text-align: justify;
 }
@@ -78,6 +84,10 @@ header input{
   box-shadow: 5px 5px 50px black;
 }
 
+header section form input:hover{
+  box-shadow: 5px -5px 20px black;
+}
+
 main{
   display: flex;
   flex-direction: row;
@@ -87,9 +97,13 @@ main{
 }
 
 #detailProduit{
-  border: 1px solid #000;
   width: 75%;
   display: inline-block;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  width: 90%;
+  display: inline-block;
+  margin: 20px 0;
 }
 
 #detailProduit img{
@@ -104,7 +118,7 @@ main{
 }
 
 #detailProduit p{
-  margin : 0 5px;
+  margin : 10px 10px;
 }
 
 footer{
@@ -130,13 +144,6 @@ footer section p{
   }
   .ficheProduit{
     width: 45%;
-  }
-}
-
-@media (min-width: 600px) {
-  .savoir{
-    left: 80%;
-    top:80px;
   }
 }
 
