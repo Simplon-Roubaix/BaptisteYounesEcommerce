@@ -137,6 +137,10 @@ footer section p{
   text-align: center;
 }
 
+#deco{
+  color:red;
+}
+
 @media (min-width: 600px) {
   .savoir{
     left: 80%;
