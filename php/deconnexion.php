@@ -6,4 +6,8 @@ session_destroy();
 $_POST["pseudo"] = "";
 $_POST["user_password"]="";
 ?>
-<p>deconnexion en cours...</p>
+<link rel="stylesheet" href="../css/style.css">
+<h1 id="titleDeco">Déconnexion en cours...</h1>
+<div id="deconnexionPage">
+ <div class="loader"></div>
+</div>
