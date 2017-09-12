@@ -13,9 +13,13 @@ $_POST["user_password"]="";
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <title>deco</title>
   </head>
   <body>
-    <p id="deco">deconnexion en cours...</p>
+    <h1 id="titleDeco">Déconnexion en cours...</h1>
+    <div id="deconnexionPage">
+     <div class="loader"></div>
+    </div>
   </body>
 </html>
