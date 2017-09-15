@@ -1,5 +1,5 @@
 <?php
-if ($connexion = true) {
+if ($connexion = true and isset($_SESSION['pseudo'])) {
   session_start();
 }
 try{

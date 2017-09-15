@@ -4,7 +4,7 @@ if ($connexion = true) {
 }
 
 try{
-        $bdd = new PDO('mysql:host=localhost;dbname=exoSql;charset=utf8', 'root', 'root');
+        $bdd = new PDO('mysql:host=localhost;dbname=siteCommercialSimplon;charset=utf8', 'root', 'root');
         array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
       }
     catch (Exception $e){
@@ -32,25 +32,21 @@ try{
     <body>
       <?php
         include("php/header.php");
-      } ?>
+      ?>
       <main>
-        <?php /*script prenand en compte les variable pseudo et code pour effacer le formulaire de départ, puis créer les fiches produit en lisant les tableaux associatifs */
-          if (!empty($_POST['pseudo']) and !empty($_POST['user_password']) or !empty($_SESSION["pseudo"]) and !empty($_SESSION["code"]) ) {
-            ?>
-
-            <script>$(document).ready(function(){
-                      $("#connection").remove();
-                      });
-                      console.log("passe ici");
-            </script>
             <?php
-              for($produit_en_cours = 0; $produit_en_cours < count($produit); $produit_en_cours++){
+            $reponse = $bdd-> prepare('SELECT article.id as id,
+              titre, resume, auteur, date_post
+              FROM article inner join image
+              on article.id = image.id');
+            while($donnees = $reponse->fetch()){{
             ?>
                 <section class="ficheProduit">
-                  <img src="<?php echo $produit[$produit_en_cours]['p_img'];?>" alt="">
-                  <p><?php echo $produit[$produit_en_cours]['p_text']; ?></p>
+                  <img src="<?php echo $donnees['src_img'];?>" alt="<?php echo $donnees['alt'];?>">
+                  <h2><?php echo $donnees['titre']; ?></h2>
+                  <p><?php echo $donnees['resume']; ?></p>
                   <form class="" action="php/ficheProduit.php" method="post">
-                    <input class="inputCache" type="text" name="selection" value="<?php echo $produit_en_cours; ?>">
+                    <input class="inputCache" type="text" name="selection" value="<?php echo $donnees['id']; ?>">
                     <input type="submit" class="savoir" value="+">
                   </form>
                 </section>
@@ -58,11 +54,6 @@ try{
             }
           }
         ?>
-        <!--formulaire statique pour acceder au site, disparais après utilisation-->
-        <section id="connection">
-          <h1>connectez vous pour accedez au site</h1>
-
-        </section>
       </main>
       <?php include("php/footer.php"); ?>
 

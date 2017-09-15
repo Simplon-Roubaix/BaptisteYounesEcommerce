@@ -1,10 +1,7 @@
 <?php
 session_start();
-header("refresh:2;url=../index.php");
 session_unset();
 session_destroy();
-$_POST["pseudo"] = "";
-$_POST["user_password"]="";
 ?>
 
 
@@ -20,5 +17,6 @@ $_POST["user_password"]="";
     <div id="deconnexionPage">
      <div class="loader"></div>
     </div>
+  <?php  header("Location:../index.php");?>
   </body>
 </html>
