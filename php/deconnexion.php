@@ -17,6 +17,6 @@ session_destroy();
     <div id="deconnexionPage">
      <div class="loader"></div>
     </div>
-  <?php  header("Location:../index.php");?>
+  <?php  header("refresh:2;location=../index.php");?>
   </body>
 </html>

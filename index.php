@@ -1,7 +1,6 @@
 <?php
-if ($connexion = true) {
   session_start();
-}
+  $chemin_deco = 'php/deconnexion.php';
 
 try{
         $bdd = new PDO('mysql:host=localhost;dbname=siteCommercialSimplon;charset=utf8', 'root', 'root');
@@ -35,11 +34,23 @@ try{
       ?>
       <main>
             <?php
+            if (isset($_SESSION['pseudo'])) {?>
+              <script type="text/javascript">
+                $(document).ready(function(){
+                  $('#creationProduit').hide();
+                });
+              </script><?php
+            }
+            ?>
+              <form id="creationProduit" action="index.php" method="post">
+
+              </form>
+              <?php
             $reponse = $bdd-> prepare('SELECT article.id as id,
               titre, resume, auteur, date_post
               FROM article inner join image
               on article.id = image.id');
-            while($donnees = $reponse->fetch()){{
+            while($donnees = $reponse->fetch()){
             ?>
                 <section class="ficheProduit">
                   <img src="<?php echo $donnees['src_img'];?>" alt="<?php echo $donnees['alt'];?>">
@@ -52,7 +63,7 @@ try{
                 </section>
                 <?php
             }
-          }
+
         ?>
       </main>
       <?php include("php/footer.php"); ?>
