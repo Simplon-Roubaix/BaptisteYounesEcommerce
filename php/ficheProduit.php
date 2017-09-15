@@ -1,7 +1,14 @@
 <?php
-session_start();
-include("produit.php");
-include("titre.php");
+if ($connexion = true) {
+  session_start();
+}
+try{
+        $bdd = new PDO('mysql:host=localhost;dbname=exoSql;charset=utf8', 'root', 'root');
+        array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+      }
+    catch (Exception $e){
+        die('Erreur : ' . $e->getMessage());
+      }
   ?>
 <!doctype html>
 <html class="no-js" lang="">

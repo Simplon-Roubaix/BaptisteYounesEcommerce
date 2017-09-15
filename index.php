@@ -1,7 +1,15 @@
 <?php
-session_start();
-include("php/produit.php");
-include("php/titre.php");
+if ($connexion = true) {
+  session_start();
+}
+
+try{
+        $bdd = new PDO('mysql:host=localhost;dbname=exoSql;charset=utf8', 'root', 'root');
+        array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+      }
+    catch (Exception $e){
+        die('Erreur : ' . $e->getMessage());
+      }
   ?>
 <!doctype html>
 <html class="no-js" lang="">
@@ -22,13 +30,7 @@ include("php/titre.php");
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
-      <?php /*script */
-      if (!empty($_POST['pseudo']) and !empty($_POST['user_password'])) {
-        $_SESSION["pseudo"] = $_POST["pseudo"];
-        $_SESSION["code"] = $_POST["user_password"];
-      }
-      if (!empty($_SESSION["pseudo"]) and !empty($_SESSION["code"]) ){
-        $chemin_deco = "php/deconnexion.php";
+      <?php
         include("php/header.php");
       } ?>
       <main>
@@ -59,22 +61,10 @@ include("php/titre.php");
         <!--formulaire statique pour acceder au site, disparais après utilisation-->
         <section id="connection">
           <h1>connectez vous pour accedez au site</h1>
-          <form action="index.php" method="post">
-            <article class="">
-              <label for="">Entrez un pseudo</label><br>
-              <input type="text" name="pseudo" value="">
-            </article>
-            <article class="">
-              <label for="">entrez un mot de passe</label><br>
-              <input type="password" name="user_password" value="">
-            </article>
-            <input type="submit" name="valider">
-          </form>
+
         </section>
       </main>
-      <?php if (!empty($_POST['pseudo']) and !empty($_POST['user_password']) or !empty($_SESSION["pseudo"]) and !empty($_SESSION["code"])) {
-        include("php/footer.php");
-      } ?>
+      <?php include("php/footer.php"); ?>
 
 
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
