@@ -14,18 +14,22 @@
       <?php
     } ?>
 
+    <!--formulaire pour se deconnecter, apparais seulement lorsque l'utilisateur est connecter-->
     <form id='decoButton' action="<?php echo $chemin_deco ?>" method="post">
     <input type="submit" value="Déconnexion" />
     </form>
 
+    <!--formulaire permettant de s'inscrire-->
     <form id="creationUser" action="php/creationUser.php" method="post">
       <input type="submit" value="s'inscrire">
     </form>
-    <form id="creationUser" action="php/verification.php" method="post">
+
+    <!--formulaire pour se connecter lorsque l'utilisateur s'est inscrit préalablement-->
+    <form id="creationUser" action="php/connexion.php" method="post">
       <label for="">pseudo</label>
-      <input id='connexionPseudo' type="text" name="pseudo" value=""><br>
+      <input id='connexionPseudo' type="text" name="connexion_pseudo" value=""><br>
       <label for="">password</label>
-      <input id='connexionPassword' type="password" name="password" value=""><br>
+      <input id='connexionPassword' type="password" name="connexion_password" value=""><br>
       <input type="submit" value="se connecter">
     </form>
     <?php if (isset($_SESSION['pseudo'])) { ?>
