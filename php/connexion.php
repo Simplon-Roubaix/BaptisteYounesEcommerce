@@ -12,14 +12,19 @@ catch (Exception $e){
   $test_pseudo = $bdd->query('SELECT pseudo FROM utilisateur');
   $test_password = $bdd->query('SELECT user_password FROM utilisateur');
   while($donnees = $test_pseudo->fetch()){
-    while ($donnees = $test_password->fetch()) {
-      if ($test_pseudo == $pseudo and $test_password == $password ) {
-        $_SESSION['pseudo'] = $pseudo;
-        echo 'connexion reussi';
+    if ($test_pseudo == $pseudo){
+      while ($donnees = $test_password->fetch()) {
+        if ($test_password == $password) {
+          $_SESSION['pseudo'] = $pseudo;
+          echo 'connexion reussi';
+        }
+        else {
+          echo 'le mot de passe est incorrect';
+        }
       }
-      else {
-        echo 'cette utilisateur n\'existe pas';
-      }
+    }
+    else {
+      echo 'le pseudo est inconnu';
     }
   }
   header("refresh:2;location=../index.php");
