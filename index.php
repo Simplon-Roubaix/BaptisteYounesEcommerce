@@ -1,7 +1,14 @@
 <?php
-session_start();
-include("php/produit.php");
-include("php/titre.php");
+  session_start();
+  $chemin_deco = 'php/deconnexion.php';
+
+try{
+        $bdd = new PDO('mysql:host=localhost;dbname=siteCommercialSimplon;charset=utf8', 'root', 'root');
+        array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+      }
+    catch (Exception $e){
+        die('Erreur : ' . $e->getMessage());
+      }
   ?>
 <!doctype html>
 <html class="no-js" lang="">
@@ -22,59 +29,44 @@ include("php/titre.php");
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
-      <?php /*script */
-      if (!empty($_POST['pseudo']) and !empty($_POST['user_password'])) {
-        $_SESSION["pseudo"] = $_POST["pseudo"];
-        $_SESSION["code"] = $_POST["user_password"];
-      }
-      if (!empty($_SESSION["pseudo"]) and !empty($_SESSION["code"]) ){
-        $chemin_deco = "php/deconnexion.php";
+      <?php
         include("php/header.php");
-      } ?>
+      ?>
       <main>
-        <?php /*script prenand en compte les variable pseudo et code pour effacer le formulaire de départ, puis créer les fiches produit en lisant les tableaux associatifs */
-          if (!empty($_POST['pseudo']) and !empty($_POST['user_password']) or !empty($_SESSION["pseudo"]) and !empty($_SESSION["code"]) ) {
-            ?>
-
-            <script>$(document).ready(function(){
-                      $("#connection").remove();
-                      });
-                      console.log("passe ici");
-            </script>
             <?php
-              for($produit_en_cours = 0; $produit_en_cours < count($produit); $produit_en_cours++){
+            if (isset($_SESSION['pseudo'])) {?>
+              <script type="text/javascript">
+                $(document).ready(function(){
+                  $('#creationProduit').hide();
+                });
+              </script><?php
+            }
+            ?>
+              <form id="creationProduit" action="index.php" method="post">
+
+              </form>
+              <?php
+            $reponse = $bdd-> prepare('SELECT article.id as id,
+              titre, resume, auteur, date_post
+              FROM article inner join image
+              on article.id = image.id');
+            while($donnees = $reponse->fetch()){
             ?>
                 <section class="ficheProduit">
-                  <img src="<?php echo $produit[$produit_en_cours]['p_img'];?>" alt="">
-                  <p><?php echo $produit[$produit_en_cours]['p_text']; ?></p>
+                  <img src="<?php echo $donnees['src_img'];?>" alt="<?php echo $donnees['alt'];?>">
+                  <h2><?php echo $donnees['titre']; ?></h2>
+                  <p><?php echo $donnees['resume']; ?></p>
                   <form class="" action="php/ficheProduit.php" method="post">
-                    <input class="inputCache" type="text" name="selection" value="<?php echo $produit_en_cours; ?>">
+                    <input class="inputCache" type="text" name="selection" value="<?php echo $donnees['id']; ?>">
                     <input type="submit" class="savoir" value="+">
                   </form>
                 </section>
                 <?php
             }
-          }
+
         ?>
-        <!--formulaire statique pour acceder au site, disparais après utilisation-->
-        <section id="connection">
-          <h1>connectez vous pour accedez au site</h1>
-          <form action="index.php" method="post">
-            <article class="">
-              <label for="">Entrez un pseudo</label><br>
-              <input type="text" name="pseudo" value="">
-            </article>
-            <article class="">
-              <label for="">entrez un mot de passe</label><br>
-              <input type="password" name="user_password" value="">
-            </article>
-            <input type="submit" name="valider">
-          </form>
-        </section>
       </main>
-      <?php if (!empty($_POST['pseudo']) and !empty($_POST['user_password']) or !empty($_SESSION["pseudo"]) and !empty($_SESSION["code"])) {
-        include("php/footer.php");
-      } ?>
+      <?php include("php/footer.php"); ?>
 
 
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
