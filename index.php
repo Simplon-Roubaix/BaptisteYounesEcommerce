@@ -46,7 +46,7 @@ try{
 
               </form>
               <?php
-            $reponse = $bdd-> prepare('SELECT article.id as id,
+            $reponse = $bdd->query('SELECT article.id as id,
               titre, resume, auteur, date_post
               FROM article inner join image
               on article.id = image.id');
