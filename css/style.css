@@ -32,6 +32,10 @@ header p{
   color:white;
 }
 
+header section label{
+  color: white;
+}
+
 
 
 .inputCache{

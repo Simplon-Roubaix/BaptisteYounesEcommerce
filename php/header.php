@@ -7,7 +7,7 @@
           $('#decoButton').hide();
           $('#bienvenu').hide();
           $('#creationUser').show();
-          $('#connexion').show();
+          $('#connexionUser').show();
         });
         console.log('bouton deco effacer');
       </script>
@@ -25,7 +25,7 @@
     </form>
 
     <!--formulaire pour se connecter lorsque l'utilisateur s'est inscrit préalablement-->
-    <form id="creationUser" action="php/connexion.php" method="post">
+    <form id="connexionUser" action="php/connexion.php" method="post">
       <label for="">pseudo</label>
       <input id='connexionPseudo' type="text" name="connexion_pseudo" value=""><br>
       <label for="">password</label>
@@ -36,7 +36,7 @@
       <script type="text/javascript">
         $(document).ready(function(){
           $('#creationUser').hide();
-          $('#connexion').hide();
+          $('#connexionUser').hide();
           $('#decoButton').show();
           $('#bienvenu').show();
         });
@@ -45,7 +45,7 @@
       <img src="<?php echo $_SESSION['src_profil'] ?>" alt="">
       <p id="bienvenu">bienvenu <?php echo $_SESSION["pseudo"]; ?></p>
     <?php
-      } ?>
+  }?>
   </section>
   <h1><?php echo $titre['titre']; ?></h1>
 </header>
