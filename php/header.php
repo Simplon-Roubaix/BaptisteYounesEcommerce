@@ -52,5 +52,5 @@
     <input type="submit" value="Ma page">
   </form>
   </section>
-  <h1><?php echo $titre['titre']; ?></h1>
+  <h1><?php echo $donnees['titre']; ?></h1>
 </header>
