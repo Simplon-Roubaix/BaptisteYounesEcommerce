@@ -1,6 +1,16 @@
 <header>
   <section>
-    <?php if (!isset($_SESSION['pseudo'])) {
+    <?php
+    try{
+        $bdd = new PDO('mysql:host=localhost;dbname=siteCommercialSimplon;charset=utf8', 'root', 'root');
+        array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+      }
+    catch (Exception $e){
+        die('Erreur : ' . $e->getMessage());
+      }
+    $infoSite = $bdd->query('SELECT titre from info_site');
+    $donnees = $infoSite->fetch();
+    if (!isset($_SESSION['pseudo'])) {
       ?>
       <script type="text/javascript">
         $(document).ready(function(){
