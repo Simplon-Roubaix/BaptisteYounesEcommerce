@@ -8,6 +8,7 @@
           $('#bienvenu').hide();
           $('#creationUser').show();
           $('#connexionUser').show();
+          $('#espaceAdmin').hide();
         });
         console.log('bouton deco effacer');
       </script>
@@ -39,6 +40,7 @@
           $('#connexionUser').hide();
           $('#decoButton').show();
           $('#bienvenu').show();
+          $('#espaceAdmin').show();
         });
         console.log('bouton deco effacer');
       </script>
@@ -46,6 +48,9 @@
       <p id="bienvenu">bienvenu <?php echo $_SESSION["pseudo"]; ?></p>
     <?php
   }?>
+  <form id="espaceAdmin" action="php/pageUtilisateur.php" method="post">
+    <input type="submit" value="Ma page">
+  </form>
   </section>
   <h1><?php echo $titre['titre']; ?></h1>
 </header>

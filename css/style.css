@@ -32,9 +32,10 @@ header p{
   color:white;
 }
 
-header section label{
+header section label,header section a{
   color: white;
 }
+
 
 
 
