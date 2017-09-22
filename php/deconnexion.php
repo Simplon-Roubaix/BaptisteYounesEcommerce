@@ -1,7 +1,10 @@
 <?php
 session_start();
+ob_start();
 session_unset();
 session_destroy();
+header("location:../index.php");
+ob_end_flush();
 ?>
 
 
@@ -17,6 +20,6 @@ session_destroy();
     <div id="deconnexionPage">
      <div class="loader"></div>
     </div>
-  <?php  header("refresh:2;location=../index.php");?>
+  <!-- <?php  ?> -->
   </body>
 </html>
