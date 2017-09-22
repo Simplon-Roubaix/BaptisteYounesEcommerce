@@ -58,6 +58,20 @@
             </section>
 
           </form>
+
+          <form id="ajoutProduit" action="ajoutProduit.php" method="post" enctype="multipart/form-data">
+            <label for="">titre</label>
+            <input type="text" name="titre" value=""><br>
+            <label for="">resume</label>
+            <input type="text" name="resume" value=""><br>
+            <label for="">texte</label>
+            <input type="text" name="texte" value=""><br>
+            <label for="">auteur</label>
+            <input type="text" name="auteur" value=""><br>
+            <label for="">ajouter image</label>
+            <input type="file" name="image" value="">
+            <input type="submit" value="envoyer">
+          </form>
         </section>
         <?php
       }

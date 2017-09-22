@@ -34,19 +34,8 @@ try{
       ?>
       <main>
             <?php
-            if (isset($_SESSION['pseudo'])) {?>
-              <script type="text/javascript">
-                $(document).ready(function(){
-                  $('#creationProduit').hide();
-                });
-              </script><?php
-            }
-            ?>
-              <form id="creationProduit" action="index.php" method="post">
-
-              </form>
-              <?php
-            $reponse = $bdd->query('SELECT article.id as id,
+            //affichage des différents produits contenu dans la table produits avec l'image dans la table image
+            $reponse = $bdd->query('SELECT article.id as id, src_img, alt
               titre, resume, auteur, date_post
               FROM article inner join image
               on article.id = image.id');
@@ -54,8 +43,10 @@ try{
             ?>
                 <section class="ficheProduit">
                   <img src="<?php echo $donnees['src_img'];?>" alt="<?php echo $donnees['alt'];?>">
+                  <small><?php echo 'posté le : '. $donnees['date_post']; ?></small>
                   <h2><?php echo $donnees['titre']; ?></h2>
                   <p><?php echo $donnees['resume']; ?></p>
+
                   <form class="" action="php/ficheProduit.php" method="post">
                     <input class="inputCache" type="text" name="selection" value="<?php echo $donnees['id']; ?>">
                     <input type="submit" class="savoir" value="+">

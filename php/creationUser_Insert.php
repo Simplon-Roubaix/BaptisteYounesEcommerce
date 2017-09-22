@@ -13,10 +13,11 @@
       $email = htmlspecialchars($_POST['mail_user']);
       $prenom = htmlspecialchars($_POST['prenom']);
       $nom = htmlspecialchars($_POST['nom']);
+      //ajout d'un utilisateur dans la table, et connexion auto
       $req = $bdd->prepare('INSERT INTO utilisateur(pseudo, user_password, user_img, email, prenom, nom) VALUES (:pseudo, :user_password, :user_img, :email, :prenom, :nom)');
       $req->execute(array(
         'pseudo'=>$pseudo,
-        'user_password'=>$user_password,
+        'user_password'=>password_hash($user_password, PASSWORD_DEFAULT),
         'user_img'=>$src_profil,
         'email'=> $email,
         'prenom' => $prenom,
