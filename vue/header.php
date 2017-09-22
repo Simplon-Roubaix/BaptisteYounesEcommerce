@@ -27,16 +27,17 @@
 
     <!--formulaire pour se deconnecter, apparais seulement lorsque l'utilisateur est connecter-->
     <form id='decoButton' action="<?php echo $chemin_deco ?>" method="post">
-    <input type="submit" value="Déconnexion" />
+      <input style='display:none;' type="text" name="deco" value="">
+      <input type="submit" value="Déconnexion" />
     </form>
 
     <!--formulaire permettant de s'inscrire-->
-    <form id="creationUser" action="php/creationUser.php" method="post">
+    <form id="creationUser" action="../php/creationUser.php" method="post">
       <input type="submit" value="s'inscrire">
     </form>
 
     <!--formulaire pour se connecter lorsque l'utilisateur s'est inscrit préalablement-->
-    <form id="connexionUser" action="php/connexion.php" method="post">
+    <form id="connexionUser" action="../control/controlIndex.php" method="post">
       <label for="">pseudo</label>
       <input id='connexionPseudo' type="text" name="connexion_pseudo" value=""><br>
       <label for="">password</label>

@@ -17,7 +17,7 @@
   </head>
   <body>
     <h1>Inscription</h1>
-    <form action="creationUser_Insert.php" method="post">
+    <form action="../index.php" method="post">
         <label for="">Entrez un pseudo</label>
         <input type="text" name="pseudo" value=""><br>
 
