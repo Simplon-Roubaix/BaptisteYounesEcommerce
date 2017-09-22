@@ -37,7 +37,7 @@
     </form>
 
     <!--formulaire pour se connecter lorsque l'utilisateur s'est inscrit préalablement-->
-    <form id="connexionUser" action="../control/controlIndex.php" method="post">
+    <form id="connexionUser" action="index.php" method="post">
       <label for="">pseudo</label>
       <input id='connexionPseudo' type="text" name="connexion_pseudo" value=""><br>
       <label for="">password</label>

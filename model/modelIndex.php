@@ -16,6 +16,7 @@ function affichageProduit(){
 }
 
 function ajoutProduit($pseudo, $resume, $texte, $auteur){
+  global $bdd;
   $ajoutProduit = $bdd->prepare('INSERT into article(titre, resume, texte, auteur, now()) values (:titre, :resume, :texte, :auteur)');
   $ajoutProduit->execute(array(
     'titre'=>$titre,
@@ -26,6 +27,7 @@ function ajoutProduit($pseudo, $resume, $texte, $auteur){
 }
 
 function ajoutUtilisateur($pseudo, $user_password, $src_profil, $email, $prenom, $nom){
+  global $bdd;
   $req = $bdd->prepare('INSERT INTO utilisateur(pseudo, user_password, user_img, email, prenom, nom) VALUES (:pseudo, :user_password, :user_img, :email, :prenom, :nom)');
   $req->execute(array(
     'pseudo'=>$pseudo,
@@ -40,22 +42,16 @@ function ajoutUtilisateur($pseudo, $user_password, $src_profil, $email, $prenom,
 
 function connexionUtilisateur($pseudo, $password){
   //connexion de l'utilisateur en comparant son pseudo et mot de passe
+  global $bdd;
   $test_connexion = $bdd->query('SELECT pseudo,user_password FROM utilisateur where pseudo = "'.$pseudo.'"');
   while($donnees = $test_connexion->fetch()){
     $testPassword = password_verify($password, $donnees['user_password']);
     if ($testPassword == true) {
       $_SESSION['pseudo'] = $donnees['pseudo'];
       var_dump($_SESSION['pseudo']);
-      header("Location:../index.php");
     }
     else{
-      ?><script type="text/javascript">
-      $(document).ready(function(){
-        alert('essais raté');
-      });
-      </script>
-      <?php
-      header("Location:../index.php");
+      echo 'raté';
     }
   }
 }
@@ -67,6 +63,7 @@ function deconnexionUtilisateur(){
 
 function miseAJourUtilisateur($pseudo, $password,
 $email,$prenom,$nom){
+  global $bdd;
   $info_utilisateur = $bdd->query('UPDATE utilisateur set pseudo = "'.$pseudo.'",
   user_password = "'.$password.'",
   email = "'.$email.'",
