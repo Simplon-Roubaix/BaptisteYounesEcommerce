@@ -26,7 +26,7 @@
     } ?>
 
     <!--formulaire pour se deconnecter, apparais seulement lorsque l'utilisateur est connecter-->
-    <form id='decoButton' action="<?php echo $chemin_deco ?>" method="post">
+    <form id='decoButton' action="index.php" method="post">
       <input style='display:none;' type="text" name="deco" value="">
       <input type="submit" value="Déconnexion" />
     </form>

@@ -17,7 +17,7 @@ if (isset($_POST['pseudo']) and isset($_POST['user_password']) and isset($_POST[
   if ($_POST['user_password'] == $_POST['validation_password']) {
     if (preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $_POST['mail_user'])){
       $pseudo = htmlspecialchars($_POST['pseudo']);
-      $user_password = htmlspecialchars($_POST['user_password']);
+      $user_password = $_POST['user_password'];
       $src_profil = htmlspecialchars($_POST['src_profil']);
       $email = htmlspecialchars($_POST['mail_user']);
       $prenom = htmlspecialchars($_POST['prenom']);
