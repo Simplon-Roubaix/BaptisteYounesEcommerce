@@ -35,6 +35,6 @@ $donnees = $infoSite->fetch(); ?>
       <label for="">nom</label>
       <input type="text" name="nom" value=""><br>
 
-      <input type="submit" name="valider">
+      <input type="submit" value="s'inscrire">
   </form>
 </footer>

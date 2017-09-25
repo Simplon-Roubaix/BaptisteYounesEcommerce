@@ -31,10 +31,10 @@
       <input type="submit" value="Déconnexion" />
     </form>
 
-    <!--formulaire permettant de s'inscrire-->
+    <!--formulaire permettant de s'inscrire
     <form id="creationUser" action="../php/creationUser.php" method="post">
       <input type="submit" value="s'inscrire">
-    </form>
+    </form>-->
 
     <!--formulaire pour se connecter lorsque l'utilisateur s'est inscrit préalablement-->
     <form id="connexionUser" action="index.php" method="post">

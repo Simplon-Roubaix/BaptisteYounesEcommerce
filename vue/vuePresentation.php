@@ -21,24 +21,22 @@
         include("header.php");
       ?>
       <main>
-            <?php
-            while($donnees = $selectionProduit->fetch()){
+        <?php
+        $chemin_deco = "../deconnexion.php";
+        include("header.php"); ?>
+        <main>
+          <?php
+          $donnees = $selectionProduit->fetch()
             ?>
-                <section class="ficheProduit">
-                  <img src="<?php echo $donnees['src_img'];?>" alt="<?php echo $donnees['alt'];?>">
-                  <small><?php echo 'posté le : '. $donnees['date_post'] .' par '. $donnees['auteur']; ?></small><br> 
-                  <h2><?php echo $donnees['titre']; ?></h2>
-                  <p><?php echo $donnees['resume']; ?></p>
-
-                  <form class="" action="control/controlPresentation.php" method="post">
-                    <input class="inputCache" type="text" name="selection" value="<?php echo $donnees['id']; ?>">
-                    <input type="submit" class="savoir" value="+">
-                  </form>
-                </section>
-                <?php
-            }
-
-        ?>
+            <script>console.log("test");</script>
+            <section id="detailProduit">
+              <img src="<?php echo $donnees['src_img']; ?>" alt="<?php echo $donnees['alt'];?>">
+              <h2><?php echo $donnees['titre']; ?></h2>
+              <p><?php echo $donnees['resume']; ?></p>
+              <small></small>
+              <small><?php echo 'posté le : '. $donnees['date_post']; ?></small><br>
+              <a href="../index.php">retour au catalogue</a>
+            </section>
       </main>
       <?php include("footer.php"); ?>
 

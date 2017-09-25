@@ -59,22 +59,6 @@ function connexionUtilisateur($pseudo, $password){
   }
 }
 
-// function connexionUtilisateur($pseudo, $password){
-//   //connexion de l'utilisateur en comparant son pseudo et mot de passe
-//   global $bdd;
-//   $test_connexion = $bdd->query('SELECT pseudo,user_password FROM utilisateur where pseudo = "'.$pseudo.'"');
-//   while($donnees = $test_connexion->fetch()){
-//     $testPassword = password_hash($password, PASSWORD_DEFAULT);
-//     if ($testPassword == $donnees['user_password']) {
-//       $_SESSION['pseudo'] = $donnees['pseudo'];
-//       var_dump($_SESSION['pseudo']);
-//     }
-//     else{
-//       echo 'raté';
-//     }
-//   }
-// }
-
 function deconnexionUtilisateur(){
   session_unset();
   session_destroy();
