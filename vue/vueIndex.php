@@ -26,7 +26,7 @@
             ?>
                 <section class="ficheProduit">
                   <img src="<?php echo $donnees['src_img'];?>" alt="<?php echo $donnees['alt'];?>">
-                  <small><?php echo 'posté le : '. $donnees['date_post'] .' par '. $donnees['auteur']; ?></small><br> 
+                  <small><?php echo 'posté le : '. $donnees['date_post'] .' par '. $donnees['auteur']; ?></small><br>
                   <h2><?php echo $donnees['titre']; ?></h2>
                   <p><?php echo $donnees['resume']; ?></p>
 
@@ -37,7 +37,6 @@
                 </section>
                 <?php
             }
-
         ?>
       </main>
       <?php include("footer.php"); ?>

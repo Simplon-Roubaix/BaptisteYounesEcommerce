@@ -1,7 +1,7 @@
 <?php
 include('model/modelIndex.php');
 
-$selectionProduit = affichageProduit();
+$selectionProduit = affichageProduits();
 
 if (isset($_POST['connexion_pseudo']) and isset($_POST['connexion_password'])) {
   $pseudo = $_POST['connexion_pseudo'];

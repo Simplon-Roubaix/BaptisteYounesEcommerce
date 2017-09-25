@@ -9,10 +9,55 @@ catch (Exception $e){
 
   function affichageProduit(){
     global $bdd;
-    $selectionProduit = $bdd->query('SELECT article.id as id, src_img, alt, titre, texte, auteur, date_post
+    $Produit = $bdd->prepare('SELECT article.id as id, src_img, alt, titre, texte, auteur, date_post
     FROM article inner join image
     on article.id = image.id
-    where id = "'.$_POST["selection"].'" ');
-    return $selectionProduit;
+    where id = "'.$_POST["selection"].'"');
+    var_dump($Produit);
+    return $Produit;
+  }
+
+  // function affichageProduit(){
+  //   global $bdd;
+  //   $selectionProduit = $bdd->prepare('SELECT article.id as id, src_img, alt, titre, texte, auteur, date_post
+  //   FROM article inner join image
+  //   on article.id = image.id
+  //   where id = ?');
+  //   $selectionProduit->execute(
+  //     '?' = $_POST["selection"]
+  //     )
+  //   return $selectionProduit;
+  // }
+
+  function ajoutImg(){
+    $ajoutProduit = $bdd->query('SELECT article.id as id, src_img, alt,
+      titre, resume, auteur, date_post
+      FROM article inner join image
+      on article.id = image.id');
+    if (isset($_FILES['monfichier']) AND $_FILES['monfichier']['error'] == 0){
+      if ($_FILES['monfichier']['size'] <= 1000000){
+        $infosfichier = pathinfo($_FILES['monfichier']['name']);
+        $extension_upload = $infosfichier['extension'];
+        $extensions_autorisees = array('jpg', 'jpeg', 'gif', 'png');
+        if (in_array($extension_upload, $extensions_autorisees)){
+          move_uploaded_file($_FILES['monfichier']['tmp_name'], 'img/img_article/'. basename($_FILES['monfichier']['name']));
+          echo "L'envoi a bien été effectué !";
+        }
+      }
+    }
+  }
+
+  function ajoutProduit($_POST['titre'] ,$_POST['resume'] ,$_POST['texte'],$_POST['auteur']){
+    $titre = $_POST['titre'];
+    $resume = $_POST['resume'];
+    $texte = $_POST['texte'];
+    $auteur = $_POST['auteur'];
+    $ajoutProduit = $bdd->prepare('INSERT into article(titre, resume, texte, auteur, now()) values (:titre, :resume, :texte, :auteur)');
+    $ajoutProduit->execute(array(
+      'titre'=>$pseudo,
+      'resume'=>$resume,
+      'texte'=>$texte,
+      'auteur'=>$auteur
+    ));
   }
   ?>

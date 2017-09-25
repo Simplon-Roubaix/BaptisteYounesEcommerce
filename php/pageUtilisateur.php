@@ -78,5 +78,6 @@
       ob_end_flush();
       include('footer.php')
        ?>
+      
   </body>
 </html>

@@ -26,7 +26,7 @@
     } ?>
 
     <!--formulaire pour se deconnecter, apparais seulement lorsque l'utilisateur est connecter-->
-    <form id='decoButton' action="index.php" method="post">
+    <form id='decoButton' action="<?php echo $chemin_deco ?>" method="post">
       <input style='display:none;' type="text" name="deco" value="">
       <input type="submit" value="Déconnexion" />
     </form>
@@ -59,7 +59,7 @@
       <p id="bienvenu">bienvenu <?php echo $_SESSION["pseudo"]; ?></p>
     <?php
   }?>
-  <form id="espaceAdmin" action="php/pageUtilisateur.php" method="post">
+  <form id="espaceAdmin" action="..vue/vuePageUtilisateur.php" method="post">
     <input type="submit" value="Ma page">
   </form>
   </section>
