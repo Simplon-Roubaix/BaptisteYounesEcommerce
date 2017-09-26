@@ -26,18 +26,17 @@
             ?>
                 <section class="ficheProduit">
                   <img src="<?php echo $donnees['src_img'];?>" alt="<?php echo $donnees['alt'];?>">
-                  <small><?php echo 'posté le : '. $donnees['date_post']; ?></small>
+                  <small><?php echo 'posté le : '. $donnees['date_post'] .' par '. $donnees['auteur']; ?></small><br>
                   <h2><?php echo $donnees['titre']; ?></h2>
                   <p><?php echo $donnees['resume']; ?></p>
 
-                  <form class="" action="php/ficheProduit.php" method="post">
+                  <form class="" action="control/controlPresentation.php" method="post">
                     <input class="inputCache" type="text" name="selection" value="<?php echo $donnees['id']; ?>">
                     <input type="submit" class="savoir" value="+">
                   </form>
                 </section>
                 <?php
             }
-
         ?>
       </main>
       <?php include("footer.php"); ?>
