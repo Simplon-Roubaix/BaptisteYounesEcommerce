@@ -20,7 +20,7 @@
       <main>
         <main>
           <?php
-          $donnees = $Produit->fetch()
+          $donnees = $Produit->fetch();
           var_dump($donnees);
             ?>
             <script>console.log("test");</script>

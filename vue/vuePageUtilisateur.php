@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    meta charset="utf-8">
+    <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Ma Page</title>
     <meta name="description" content="">
@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/style.css">
     <script src="../jquery-3.2.1.js"></script>
-    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
   </head>
   <body>
     <section id="sectionMiseAJour">
@@ -56,8 +56,8 @@
     </section>
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
+    <script src="../js/plugins.js"></script>
+    <script src="../js/main.js"></script>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>

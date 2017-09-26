@@ -47,17 +47,17 @@ catch (Exception $e){
     }
   }
 
-  function ajoutProduit($_POST['titre'] ,$_POST['resume'] ,$_POST['texte'],$_POST['auteur']){
-    $titre = $_POST['titre'];
-    $resume = $_POST['resume'];
-    $texte = $_POST['texte'];
-    $auteur = $_POST['auteur'];
-    $ajoutProduit = $bdd->prepare('INSERT into article(titre, resume, texte, auteur, now()) values (:titre, :resume, :texte, :auteur)');
-    $ajoutProduit->execute(array(
-      'titre'=>$pseudo,
-      'resume'=>$resume,
-      'texte'=>$texte,
-      'auteur'=>$auteur
-    ));
-  }
+  // function ajoutProduit($_POST['titre'] ,$_POST['resume'] ,$_POST['texte'],$_POST['auteur']){
+  //   $titre = $_POST['titre'];
+  //   $resume = $_POST['resume'];
+  //   $texte = $_POST['texte'];
+  //   $auteur = $_POST['auteur'];
+  //   $ajoutProduit = $bdd->prepare('INSERT into article(titre, resume, texte, auteur, now()) values (:titre, :resume, :texte, :auteur)');
+  //   $ajoutProduit->execute(array(
+  //     'titre'=>$pseudo,
+  //     'resume'=>$resume,
+  //     'texte'=>$texte,
+  //     'auteur'=>$auteur
+  //   ));
+  //}
   ?>

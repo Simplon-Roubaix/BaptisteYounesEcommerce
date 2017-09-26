@@ -59,7 +59,7 @@
       <p id="bienvenu">bienvenu <?php echo $_SESSION["pseudo"]; ?></p>
     <?php
   }?>
-  <form id="espaceAdmin" action="..vue/vuePageUtilisateur.php" method="post">
+  <form id="espaceAdmin" action="<?php echo $cheminPageUtilisateur ?>" method="post">
     <input type="submit" value="Ma page">
   </form>
   </section>
