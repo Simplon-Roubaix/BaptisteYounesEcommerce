@@ -18,7 +18,7 @@
   </head>
   <body>
     <section id="sectionMiseAJour">
-      <form id="miseAJour" action="pageUtilisateur_post.php" method="post">
+      <form id="miseAJour" action="../control/controlPageUtilisateur.php" method="post">
         <label for="">pseudo</label>
         <input type="text" name="pseudo" value="<?php echo $_SESSION['pseudo'];?>"><br>
 

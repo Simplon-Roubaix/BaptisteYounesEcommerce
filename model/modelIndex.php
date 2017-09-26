@@ -63,16 +63,4 @@ function deconnexionUtilisateur(){
   session_unset();
   session_destroy();
 }
-
-function miseAJourUtilisateur($pseudo, $password,
-$email,$prenom,$nom){
-  global $bdd;
-  $info_utilisateur = $bdd->query('UPDATE utilisateur set pseudo = "'.$pseudo.'",
-  user_password = "'.$password.'",
-  email = "'.$email.'",
-  prenom = "'.$prenom.'",
-  nom = "'.$nom.'" WHERE pseudo = "'.$_SESSION['pseudo'].'" ');
-  $_SESSION['pseudo'] = $pseudo;
-  header("Location:../index.php");
-  ob_end_flush();
-} ?>
+ ?>

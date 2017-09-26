@@ -27,7 +27,7 @@ catch (Exception $e){
   }
 
   function ajoutImg($image){
-    echo ('lancement ajout image');
+    echo('lancement ajout image');
     global $bdd;
     $ajoutProduit = $bdd->query('SELECT article.id as id, src_img, alt,
       titre, resume, auteur, date_post
@@ -43,8 +43,8 @@ catch (Exception $e){
           move_uploaded_file($image['tmp_name'], 'img/img_article/'. basename($image['name']));
           $envoisImage = $bdd->prepare('INSERT INTO image(src_img, alt) values (:src_img, :alt)');
           $envoisImage ->execute(array(
-            'src_img' => $image['name'],
-            'alt' => $image['name']
+            'src_img' => 'img/img_article/'. basename($image['name']),
+            'alt' => 'img/img_article/'. basename($image['name'])
           ));
           echo "L'envoi a bien été effectué !";
         }
